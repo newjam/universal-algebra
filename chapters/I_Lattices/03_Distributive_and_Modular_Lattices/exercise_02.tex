@@ -1,0 +1,26 @@
+
+\begin{theorem*}
+If $L$ is a distributive lattice then the set of ideals of $L$ is a distributive lattice.
+\end{theorem*}
+
+\begin{proof}
+Assume $L$ is a distributive lattice.
+Recall that an ideal of the lattice $L$ is a non-empty, lower set of $L$, closed under $\join$.
+We know from a previous exercise that the set ideals of $L$ form a lattice with $X \meet Y = X \intersect Y$ and $X \join Y = \{ a \in L \mid a \leq x \join y \text{ for some } x \in X \text{ and } y \in Y \}$, and that $X\leq Y$ means $X\subseteq Y$ for all ideals $X$ and $Y$ of $L$.
+Take any ideals $X$, $Y$, and $Z$ of $L$.
+To prove the lattice of ideals of $L$ is distributive, it is sufficient to prove the inequality
+$X\meet (Y \join X) \leq (X\meet Y) \join (X\meet Z)$.
+Assume $x\in X \meet (Y\join Z)$.
+Then $x \in X$ and $x \in Y \join Z$.
+So by definition of $Y \join Z$, $x \leq y \meet z$ for some $y \in Y$ and $z \in Z$.
+Then $x = x \meet (y \join z)$ by using the lattice definition of $\leq$.
+Then $x = (x \meet y) \join (x\meet z)$ because $L$ is a distributive lattice.
+So clearly $x \leq (x \meet y) \join (x\meet z)$.
+Since $x \meet y \in L$, $x \in X$, $x \meet y \leq x$, and $X$ is a lower set, it must be that $x \meet y \in X$.
+Similarly $x\meet y \in Y$, and thus $x\meet y \in X \meet Y$.
+The same argument shows that $x \meet z \in X \meet Z$.
+Then we have that $x \leq (x \meet y) \join (x\meet z)$ where $x \meet y \in X \meet Y$ and $x \meet z \in X \meet Z$.
+So by definition, $x \in (X\meet Y) \join (X\meet Z)$.
+Therefore $X \meet (Y\join Z) \subseteq (X\meet Y) \join (X\meet Z)$, that is the inequality is true and the lattice of ideals of the distributive lattice $L$ is itself distributive.
+\end{proof}
+

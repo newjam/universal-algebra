@@ -1,0 +1,28 @@
+\usepackage{amsmath}
+\usepackage{titlesec} 
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\newcommand{\meet}{\wedge}
+\newcommand{\join}{\vee}
+\newcommand{\intersect}{\cap}
+\newcommand{\union}{\cup}
+
+
+
+\newtheorem*{theorem*}{Theorem}
+
+% Make the title a bit more compact to save the trees
+
+\makeatletter % Need for anything that contains an @ command 
+\renewcommand{\maketitle} % Redefine maketitle to conserve space
+{ \begingroup \vskip 10pt \begin{center} \LARGE {\bf \@title}
+    \vskip 10pt \large \@author \hskip 20pt \@date \end{center}
+  \vskip 10pt \endgroup \setcounter{footnote}{0} }
+\makeatother % End of region containing @ commands
+
+\author{James Newman}
+\date{\today}
+
