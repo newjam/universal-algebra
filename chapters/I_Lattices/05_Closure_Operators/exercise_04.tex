@@ -1,0 +1,53 @@
+\begin{theorem*}
+If $L$ is a lattice and $A \subseteq L$,
+let $u(A) = \{ b \in L \mid a \leq b \text{ for all } a \in A \}$, the set of upper bounds of $A$,
+and let $l(A) = \{ b \in L \mid b \leq a \text{ for all } a \in A \}$, the set of lower bounds of $A$.
+Show that $C(A) = l \circ u (A)$ is a closure operator on $A$, and that the map $\alpha : a \mapsto C(\{a\})$ gives an embedding of $L$ into the complete lattice $L_C$.
+\end{theorem*}
+
+\begin{proof}
+Take any $X, Y \subseteq L$, we must prove that $X \subseteq C(X)$, $C^2(X) = C(X)$, and $C(X) \subseteq C(Y)$ when $X\subseteq Y$.
+
+Take any $x \in X$ and $a \in u(X)$.
+Then $x \leq a$ by definition of upper bound.
+So $x \in l\circ u(X)$.
+Therefore $X \subseteq  l\circ u(X) = C(X)$, proving $C$ is extensive.
+A similar proof shows that $X \subseteq u\circ l(X)$.
+
+Also, let's prove that $l = l \circ u \circ l$.
+Because $C$ is extensive, $l(X) \subseteq C(l(X)) = l \circ u  \circ l(X)$.
+Next, take any $a \in l \circ u \circ l (X)$ and $x \in X$.
+So $x \in u \circ l(X)$ because $X\subseteq u\circ l(X)$.
+$a \leq x$ because $a$ is a lower bound of $u \circ l (X)$ and $x \in u \circ l (X)$.
+Then $a \in l(X)$ because $a \leq x$ for all $x \in X$. 
+Therefore $l \circ u  \circ l(X) \subseteq l(X)$.
+Finally $l = l \circ u \circ l$ because $l \circ u  \circ l(X) \subseteq l(X)$ and $l(X) \subseteq l \circ u  \circ l(X)$.
+Then $C^2 = l \circ u \circ l \circ u = l \circ u  = C$, so $C$ is idempotent.
+
+Another detour: if $X \subset Y$, then $u(Y) \subset u(X)$ and $l(Y) \subseteq l(X)$.
+Assume $X \subset Y$.
+Assume $a \in l(Y)$ and take any $b \in X$.
+Then $b \in Y$ because $X \subseteq Y$.
+So $a \leq b$ because $a$ is a lower bound of $Y$ and $b \in Y$.
+Since $a \leq b$ for all $b\in X$, $a \in l(Y)$.
+Therefore $l(Y) \subseteq l(X)$ because $a\in l(Y)$ when $a\in l(X)$.
+A similar proof shows $u(Y) \subset u(X)$.
+
+Take any $X, Y \subseteq L$ such that $X \subseteq Y$.
+Take any $a \in C(X) = l \circ u (X)$.
+Next, take any $b \in u(Y)$.
+Then $b \in u(X)$ because $u(Y) \subseteq u(X)$ by the above lemma.
+So $a \leq b$ because $a$ is a lower bound of $u(X)$.
+Therefore $a \in l\circ u(Y) = C(Y)$ because $a \leq b$ for all $b\in u(Y)$.
+This is two say that $C(X) \subseteq C(Y)$ and $C$ is isotone.
+
+Therefore $C$ is a closure operator as it is extensive, idempotent, and isotone.
+
+Next the mapping $\alpha:a \mapsto C(\{a\})$ is order preserving.
+Take any $x, y \in L$ such that $x \leq y$.
+
+
+
+
+\end{proof}
+
