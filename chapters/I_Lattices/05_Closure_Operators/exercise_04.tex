@@ -24,8 +24,8 @@ Therefore $l \circ u  \circ l(X) \subseteq l(X)$.
 Finally $l = l \circ u \circ l$ because $l \circ u  \circ l(X) \subseteq l(X)$ and $l(X) \subseteq l \circ u  \circ l(X)$.
 Then $C^2 = l \circ u \circ l \circ u = l \circ u  = C$, so $C$ is idempotent.
 
-Another detour: if $X \subset Y$, then $u(Y) \subset u(X)$ and $l(Y) \subseteq l(X)$.
-Assume $X \subset Y$.
+Another detour: if $X \subseteq Y$, then $u(Y) \subseteq u(X)$ and $l(Y) \subseteq l(X)$.
+Assume $X \subseteq Y$.
 Assume $a \in l(Y)$ and take any $b \in X$.
 Then $b \in Y$ because $X \subseteq Y$.
 So $a \leq b$ because $a$ is a lower bound of $Y$ and $b \in Y$.
@@ -45,8 +45,14 @@ Therefore $C$ is a closure operator as it is extensive, idempotent, and isotone.
 
 Next the mapping $\alpha:a \mapsto C(\{a\})$ is order preserving.
 Take any $x, y \in L$ such that $x \leq y$.
+First let us prove that $u(\{y\}) \subseteq u(\{x\})$.
+Take any $a\in u(\{y\})$, which is to say $y \leq a$.
+Then since $x \leq y$, by transitivity, $x \leq a$.
+So $a\in u(\{x\})$, and therefore $u(\{y\}) \subseteq u(\{x\})$.
+Next, by the above detour, $\l\circ u(\{x\}) \subseteq l\circ u(\{y\}) $  since $u(\{y\}) \subseteq u(\{x\})$.
+Therefore $\alpha$ is order preserving because $\alpha(x) \subseteq \alpha(y)$ when $x \leq y$ for any $x,y \in L$.
 
-
+Obviously $\alpha$ is surjective if we consider its codomain its image. 
 
 
 \end{proof}
