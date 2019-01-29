@@ -1,4 +1,52 @@
 \begin{theorem*}
+If $\langle B, \meet, \join, ', 0 , 1\rangle$ is a Boolean algebra then $x \join 0 = x$ and $x \meet 1 = x$ for all $x\in B$.
+\end{theorem*}
+
+\begin{proof}
+Assume  $\langle B, \meet, \join, ', 0 , 1\rangle$ is a Boolean algebra and take any $x \in B$.
+Then
+\begin{align*}
+  x &= x \join (x \meet 0)           & \text{Lattice absorbtion}\\
+    &= x \join 0                     & \text{Boolean algebra}
+\end{align*}
+Dually,
+\begin{align*}
+  x &= x \meet (x \join 1)           & \text{Lattice absorbtion}\\
+    &= x \meet 1                     & \text{Boolean algebra}
+\end{align*}
+\end{proof}
+
+\begin{theorem*}
+If $\langle B, \meet, \join, ', 0 , 1\rangle$ is a Boolean algebra then $(x \join y)' = (x' \meet y')$ and $(x \meet y)' = (x' \join y')$ for all $x, y\in B$.
+\end{theorem*}
+\begin{proof}
+Assume $\langle B, \meet, \join, ', 0 , 1\rangle$ is a Boolean algebra.
+Then
+\begin{align*}
+(x\join y) \meet (x' \meet y') &= ((x\join y) \meet x') \meet y' \\
+                               &= (x' \meet  (x\join y)) \meet y' \\
+                               &= ((x' \meet x) \join (x' \meet y)) \meet y' \\
+                               &= (0 \join (x' \meet y)) \meet y' \\
+                               &= (x' \meet y) \meet y' \\
+                               &= x' \meet (y \meet y') \\
+                               &= x' \meet 0 \\
+                               &= 0 
+\end{align*}
+Furthermore,
+\begin{align*}
+(x\join y) \join (x' \meet y') &= x\join (y \join (x' \meet y')) \\
+                               &= x\join ((y \join x') \meet (y \join y')) \\
+                               &= x\join ((y \join x') \meet 1) \\
+                               &= x\join (y \join x') \\
+                               &= x\join (x' \join y) \\
+                               &= (x\join x') \join y \\
+                               &= 1 \join y \\
+                               &= 1
+\end{align*}
+Therefore $x' \meet y'$ is a complement of $x\join y$ and since there is at most one complement for an element of a boolean algebra, $x' \meet y' = (x\join y)'$. A similar proof shows that $x' \join y' = (x\meet y)'$
+\end{proof}
+
+\begin{theorem*}
 If $\langle B, \meet, \join, ', 0 , 1\rangle$ is a Boolean algebra and $a, b \in B$, define $a\to b$ to be $a'\join b$.
 Then $\langle B, \meet, \join, \to, 0, 1\rangle$ is a Heyting algebra.
 \end{theorem*}
@@ -12,10 +60,10 @@ Then for any $x, y, z \in B$
   \item $x\to x = x'\join x = 1$
   \item 
     \begin{align*}
-      (x\to y) \meet y &= (x' \join y) \meet y \\
-                       &= y \meet (x' \join y) \\
-                       &= y \meet (y \join x') \\
-                       &= y
+      (x\to y) \meet y &= (x' \join y) \meet y & \text{$x\to y = x' \join y$} \\
+                       &= y \meet (x' \join y) & \text{Lattice commutativity} \\
+                       &= y \meet (y \join x') & \text{Lattice commutativity}\\
+                       &= y                    & \text{Lattice absorbtion}
     \end{align*}
     Furthermore
     \begin{align*}
@@ -31,6 +79,13 @@ Then for any $x, y, z \in B$
                         &= (x \to y) \meet (x \to z)
     \end{align*}
     And
+    \begin{align*}
+      (x \join y) \to z &= ((x \join y)' \join z) \\
+                        &= ((x' \meet y') \join z) \\
+                        &= (x'\join z) \meet (y'\join z) \\
+                        &= (x\to z) \meet (y\to z)
+    \end{align*}
 \end{enumerate}
+Therefore the $\langle B, \meet, \join, \to, 0, 1\rangle$ satisfies H1-5 and is a Heyting algebra.
 \end{proof}
 
