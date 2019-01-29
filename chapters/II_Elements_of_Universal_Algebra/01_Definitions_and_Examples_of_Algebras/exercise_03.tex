@@ -1,3 +1,4 @@
+Before continuing let us prove some useful facts about Boolean algebras.
 \begin{theorem*}
 If $\langle B, \meet, \join, ', 0 , 1\rangle$ is a Boolean algebra then $x \join 0 = x$ and $x \meet 1 = x$ for all $x\in B$.
 \end{theorem*}
@@ -44,6 +45,32 @@ Furthermore,
                                &= 1
 \end{align*}
 Therefore $x' \meet y'$ is a complement of $x\join y$ and since there is at most one complement for an element of a boolean algebra, $x' \meet y' = (x\join y)'$. A similar proof shows that $x' \join y' = (x\meet y)'$
+\end{proof}
+
+\begin{theorem*}
+If $\langle B, \meet, \join, ', 0 , 1\rangle$ is a Boolean algebra then $(x')' = x$.
+\end{theorem*}
+
+\begin{proof}
+\begin{align*}
+  (x')' &= 1 \meet (x')' \\
+        &= (x \join x') \meet (x')'  \\
+        &= (x')' \meet (x \join x') \\
+        &= ((x')' \meet x) \join ((x')' \meet x') \\
+        &= ((x')' \meet x) \join 0 \\
+        &= (x')' \meet x
+\end{align*}
+So $(x')' \leq x$.
+Next,
+\begin{align*}
+  x &= x \meet 1 \\
+    &= x \meet (x' \join (x')') \\
+    &= (x \meet x') \join (x \meet (x')') \\
+    &= 0 \join (x \meet (x')') \\
+    &= x \meet (x')' \\
+\end{align*}
+So $x \leq (x')'$.
+Therefore $x = (x')'$ by anti-symmetry because $(x')' \leq x$ and $x \leq (x')'$.
 \end{proof}
 
 \begin{theorem*}
