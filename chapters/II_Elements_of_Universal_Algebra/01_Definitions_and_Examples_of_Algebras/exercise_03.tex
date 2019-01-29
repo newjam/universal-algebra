@@ -1,0 +1,36 @@
+\begin{theorem*}
+If $\langle B, \meet, \join, ', 0 , 1\rangle$ is a Boolean algebra and $a, b \in B$, define $a\to b$ to be $a'\join b$.
+Then $\langle B, \meet, \join, \to, 0, 1\rangle$ is a Heyting algebra.
+\end{theorem*}
+
+\begin{proof}
+Assume $\langle B, \meet, \join, ', 0 , 1\rangle$ is a Boolean algebra and define $a\to b$ as $a'\join b$ for all $a, b \in B$.
+Then for any $x, y, z \in B$
+\begin{enumerate}[(H1)]
+  \item Follows from B1.
+  \item Follows from B2.
+  \item $x\to x = x'\join x = 1$
+  \item 
+    \begin{align*}
+      (x\to y) \meet y &= (x' \join y) \meet y \\
+                       &= y \meet (x' \join y) \\
+                       &= y \meet (y \join x') \\
+                       &= y
+    \end{align*}
+    Furthermore
+    \begin{align*}
+      x \meet (x\to y) &= x \meet (x' \join y) \\
+                       &= (x \meet x') \join (x \meet y) \\
+                       &= 0 \join (x \meet y) \\
+                       &= x \meet y \\
+    \end{align*}
+  \item 
+    \begin{align*}
+      x \to (y \meet z) &= x' \join (y \meet z) \\ 
+                        &= (x' \join y) \meet (x' \join z) \\
+                        &= (x \to y) \meet (x \to z)
+    \end{align*}
+    And
+\end{enumerate}
+\end{proof}
+

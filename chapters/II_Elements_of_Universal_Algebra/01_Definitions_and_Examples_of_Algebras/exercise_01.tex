@@ -1,0 +1,42 @@
+
+\begin{definition*}
+An algebra $\langle A, F\rangle$ is the reduct of an algebra $\langle A, F^*\rangle$ to $\mathcal{F}$ if $\mathcal{F}\subseteq\mathcal{F^*}$, and $F$ is the reduction of $F^*$ to $\mathcal{F}$.
+\end{definition*}
+
+\begin{theorem*}
+Given $n\geq 1$, find equations $\Sigma$ for semigroups such that $\Sigma$ will hold in a semigroup $\langle S, \cdot \rangle$ iff $\langle S, \cdot \rangle$ is a reduct of a group $\langle S, \cdot, ^{-1}, 1 \rangle$ of exponent $n$ (i.e.\ every element of $S$ is such that its order divides $n$).
+\end{theorem*}
+
+\begin{proof}
+Assume $n\geq 1$ and $\langle S, \cdot\rangle$ is a semigroup which satisfies the equations in $\Sigma$ where $\Sigma$ contains
+\[
+  x^{n+1} = x \text{ and,}
+\]
+\[
+  x^n = y^n
+\]
+for all $x,y\in S$.
+Define $x^{-1} = x^{n - 1}$ for all $x \in S$, and $1 = c^n$ for an arbitrary $c\in S$.
+Then for any $x, y \in S$,
+\begin{enumerate}[(i)]
+  \item G1 holds because it is a semigroup.
+  \item 
+    $1\cdot x = c^n \cdot x = x^n \cdot x = x^{n+1} = x = x^{n+1} = x\cdot x^n = x \cdot c^n = x \cdot 1$.
+    Thus $1\cdot x = x = x \cdot 1$, that is G2 holds.
+  \item
+    $x\cdot x^{-1} = x \cdot x^{n-1} = x^n = c^n = 1 = c^n = x^n = x^{n-1} \cdot x = x^{-1} \cdot x$.
+    Thus $x\cdot x^{-1} = 1 = x^{-1} \cdot x$, that is G3 holds.
+\end{enumerate}
+Furthermore is easy to see that since $x^n = 1$, the order of $x$ must divide $n$.
+Since G1-3 hold, the semigroup $\langle S, \cdot\rangle$ is a reduct of the group $\langle S, \cdot, ^{-1}, 1 \rangle$.
+
+In the other direction, assume $\langle S, \cdot, ^{-1}, 1 \rangle$ is a group where the order of every element divides $n$.
+Then for any $x$, the order of $x$ is $i$ where $ij=n$ for some $j$.
+So $x^n = x^{ij} = (x^i)^j = 1^j = 1$.
+Thus for any $x, y \in S$,
+\begin{enumerate}[(i)]
+  \item $x^{n+1} = x^{n}\cdot x = 1 \cdot x = x$, and
+  \item $x^n = 1 = y^n$.
+\end{enumerate}
+Thus the reduct semigroup $\langle S, \cdot\rangle$ satisfies $\Sigma$.
+\end{proof}

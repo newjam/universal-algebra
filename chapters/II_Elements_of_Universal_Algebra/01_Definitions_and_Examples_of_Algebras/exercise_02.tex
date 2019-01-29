@@ -1,0 +1,32 @@
+\begin{definition*}
+Two elements $a$, $b$ of a bounded lattice $\langle L, \meet, \join, 0, 1\rangle$ are complements if $a \join b = 1$ and $a\meet b = 0$.
+In this case, each of $a$, $b$ is the complement of the other.
+A complemented lattice is a bounded lattice in which every element has a complement.
+\end{definition*}
+
+\begin{theorem*}
+In a bounded distributive lattice any element has at most one complement.
+\end{theorem*}
+
+\begin{proof}
+Assume $\langle L, \meet, \join, 0, 1 \rangle$ is a bounded distributive lattice.
+Furthermore take any elements $a, b, c \in L$ such that both $b$ and $c$ are complements of $a$.
+That is $a\meet b = 0$, $a\join b = 1$, $a\meet c = 0$, and $a\join c = 0$.
+Then
+\begin{align*}
+  b &= b \join (b \meet a)           & \text{Lattice absorbtion} \\
+  b &= b \join (a \meet b)           & \text{Lattice commutativity} \\
+    &= b \join 0                     & \text{$a\meet b = 0$} \\
+    &= b \join (a \meet c)           & \text{$a\meet c = 0$} \\
+    &= (b \join a) \meet (b \join c) & \text{Distributive Lattice} \\
+    &= (a \join b) \meet (b \join c) & \text{Lattice commutativity} \\
+    &= 1 \meet (b \join c)           & \text{$a\join b = 1$} \\
+    &= (a \join c) \meet (b \join c) & \text{$a\join c = 1$} \\
+    &= (c \join a) \meet (c \join b) & \text{Lattice commutativity} \\
+    &= c \join (a \meet b)           & \text{Distributive Lattice} \\
+    &= c \join 0                     & \text{$a\meet b = 0$} \\
+    &= c \join (c \meet 0)           & \text{Bounded Lattice} \\
+    &= c                             & \text{Lattice absorbtion}
+\end{align*}
+Therefore $b = c$ and thus there is at most 1 complement of any element $a$ in a bounded distributive lattice.
+\end{proof}
