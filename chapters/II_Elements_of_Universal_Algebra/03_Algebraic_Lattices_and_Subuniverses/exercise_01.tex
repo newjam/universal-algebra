@@ -4,4 +4,33 @@
 
 \begin{proof}
   First by induction, $E^k(X) \subseteq \text{Sg}(X)$ for all $k \in \mathbb{N}$.
+  \begin{enumerate}[(i)]
+    \item The base case when $k =0$ holds: $E^0(X) = X \subseteq \text{Sg}(X)$ because $\text{Sg}(X)$ is the intersection of supersets of $X$.
+    \item Assume that $E^{k}(X) \subseteq \text{Sg}(X)$.
+          Then take any $a \in E^{k+1}(X) = E(E^k(X)) = E^k(X) \union \{ f(a_1, \ldots, a_n) \mid f \text{ is a fundamental $n$-ary operation on $A$ and } a_1,\ldots, a_n \in E^k(X)\}$.
+          In the first case $a \in E^k(X)$, which case clearly $a\in\text{Sg}(X)$ as $E^{k}(X) \subseteq \text{Sg}(X)$.
+          Otherwise $a \in \{ f(a_1, \ldots, a_n) \}$
+	  So $a = f(a_1, \ldots, a_n)$ for $a_1, \ldots, a_n \in E^k(X)$.
+          Then $a_1, \ldots, a_n \in \text{Sg}(X)$ because $E^k(X) \subseteq \text{Sg}(X)$.
+          Take any subuniverse $B$ such that $X\subseteq B$.
+          Then $a_1, \ldots, a_n \in B$ because $a_1, \ldots, a_n \in \text{Sg}(X)$.
+          Thus $f(a_1, \ldots, a_n) \in B$ because $B$ is a subuniverse and is closed.
+          Therefore $a = f(a_1, \ldots, a_n) \in \text{Sg}(X)$ because it is in every subuniverse that contains $X$.
+          In either case, $a \in \text{Sg}(X)$, thus $E^{k+1}(X) \subseteq \text{Sg}(X)$ since if $a \in E^{k+1}(X)$ then $a\in\text{Sg}(X)$.
+  \end{enumerate}
+  Thus by induction $E^{k}(X) \subseteq \text{Sg}(X)$ for all $k \in \mathbb{N}$.
+  Then it is clear that $X \union E(X) \union E^2(X) \union \ldots \subseteq \text{Sg}(X)$.
+
+  Next, $X\union E(X) \union E^2(X) \union \ldots$ is a subuniverse.
+  Take any $n$-ary operation $f$ on $A$ and $a_1, \ldots, a_n \in X\union E(X) \union E^2(X) \union \ldots$.
+  Since $\{a_1, \ldots, a_n \}$ is finite, each $a_n$ is in some $E^k(X)$ and $X \subseteq E(X) \subseteq E^2(X) \subseteq \ldots$, there is some $E^k(X)$ such that $a_1, \ldots, a_n \in E^k(X)$.
+  Then by definition $f(a_1, \ldots, a_n) \in E^{k+1}(X)$, and so $f(a_1, \ldots, a_n) \in X\union E(X) \union E^2(X) \union \ldots$ because $E^{k+1} \subseteq X \union \ldots \union E^K(X) \union E^{k+1}(X) \union \ldots$.
+  Therefore it is closed and contains $X$ so is a subuniverse.
+
+  Assume $x\notin X\union E(X) \union E^2(X)\union\ldots$.
+  Then since it is a subuniverse containing $X$ and $\text{Sg}(X)$ is the intersection of all such subuniverses, $x\notin \text{Sg}(X)$.
+  Then by contrapositive, if $x\in \text{Sg}(X)$ then $x \in X\union E(X) \union E^2(X) \union \ldots$.
+  That is $\text{Sg}(X) \subseteq  X\union E(X) \union E^2(X) \union \ldots$.
+
+  With both directions of the inclusion demonstrated, they are equal.
 \end{proof}

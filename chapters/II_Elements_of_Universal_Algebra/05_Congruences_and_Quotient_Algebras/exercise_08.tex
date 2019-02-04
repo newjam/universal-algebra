@@ -1,0 +1,35 @@
+\begin{theorem*}
+  If $\mathbf{A}$ is a unary algebra and $B$ is a subuniverse then the relation $\sim$ defined by $a\sim b$ if and only if $a = b$ or $a, b \in B$ is a congruence on $\mathbf{A}$.
+\end{theorem*}
+
+\begin{proof}
+  Assume $\mathbf{A}$ is a unary algebra and $B$ is a subuniverse.
+  Defined the realtion $\sim$ by $a\sim b$ if and only if $a = b$ or $a, b \in B$.
+  Then
+  \begin{enumerate}
+    \item
+      For all $a\in A$, $a\sim a$ because $a = a$.
+    \item
+      For all $a, b \in A$, if $a \sim b$ then $b\sim a$ because if $a = b$ or $a,b \in B$ then $b = a$ or $b, a \in B$.
+    \item
+      Take any $a, b, c \in A$ such that $a\sim b$ and $b\sim c$.
+      Then by cases
+      \begin{enumerate}
+        \item $a,b\in B$ and $b, c \in B$ in which case $a, c \in B$ and $a\sim c$.
+        \item $a,b\in B$ and $b = c$ in which case $a, c \in B$ and $a \sim c$.
+        \item $a = b$ and $b = c$ in which case $a = c$ and $a \sim c$.
+      \end{enumerate}
+  \end{enumerate}
+  Thus $\sim$ is an equivalence relation.
+  To show it is compatible, take any operation $f$ of $\mathbf{A}$ and any $a, b \in A$ such that $a \sim b$.
+  Since $\mathbf{A}$ is a unary algebra, $f$ is unary.
+  Then either
+  \begin{enumerate}
+    \item
+      $a = b$ so $f(a) = f(b)$ and thus $f(a) \sim f(b)$.
+    \item
+      $a, b \in B$ then because $B$ is a subuniverse and is closed under $f$, $f(a) , f(b) \in B$, so $f(a) \sim f(b)$.
+  \end{enumerate}
+  Therefore $\sim$ is a compatible equivalence relation on $A$ and thus a congruence of $\mathbf{A}$.
+\end{proof}
+

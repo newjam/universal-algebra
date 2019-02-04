@@ -4,9 +4,10 @@ If $\sim\; \in \text{Con }\mathbf{G}$ then $1/\sim$ is the universe of a normal 
 
 \begin{proof}
 Assume  $\sim\; \in \text{Con }\mathbf{G}$.
+Let $N = 1 / \sim$
 
-For any $g \in G$, take any $g\cdot a\cdot g^{-1} \in g(1/\sim)g^{-1}$.
-Then $a \in 1/\sim$ and thus $1 \sim a$.
+For any $g \in G$, assume $g\cdot a\cdot g^{-1} \in gNg^{-1}$.
+Then $a \in N$ and thus $1 \sim a$.
 Then by compatibility, 
 \begin{align*}
 g\cdot 1       &\sim g\cdot a \\
@@ -14,15 +15,15 @@ g              &\sim g\cdot a \\
 g \cdot g^{-1} &\sim g\cdot a \cdot g^{-1} \\
 1              &\sim g\cdot a \cdot g^{-1}
 \end{align*}
-Then $g\cdot a \cdot g^{-1} \in 1/\sim$.
-So $g(1/\sim)g^{-1} \subseteq (1/\sim)$ for all $g \in G$ and thus $1/\sim$ is the universe of  normal subgroup of $\mathbf{G}$.
+Then $g\cdot a \cdot g^{-1} \in N$.
+So $gNg^{-1} \subseteq N$ for all $g \in G$ and thus $N = 1/\sim$ is the universe of  normal subgroup of $\mathbf{G}$.
 
 Next, for $a, b \in G$,
 \begin{align*}
 a            &\sim b              & \text{iff} \\
 a\cdot b^{-1} &\sim b\cdot b^{-1} & \text{iff} \\
 a\cdot b^{-1} &\sim 1             & \text{iff} \\
-a\cdot b^{-1} &\in 1/\sim         
+a\cdot b^{-1} &\in N
 \end{align*}
 by compatibility and properties of groups.
 \end{proof}
