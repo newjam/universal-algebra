@@ -1,0 +1,71 @@
+\begin{theorem*}
+If $\sim\; \in \text{Con }\mathbf{G}$ then $1/\sim$ is the universe of a normal subgroup of $\mathbf{G}$, and for $a,b\in G$ we have $a\sim b$ if and only if $a\cdot b^{-1} \in 1/\sim$.
+\end{theorem*}
+
+\begin{proof}
+Assume  $\sim\; \in \text{Con }\mathbf{G}$.
+
+For any $g \in G$, take any $g\cdot a\cdot g^{-1} \in g(1/\sim)g^{-1}$.
+Then $a \in 1/\sim$ and thus $1 \sim a$.
+Then by compatibility, 
+\begin{align*}
+g\cdot 1       &\sim g\cdot a \\
+g              &\sim g\cdot a \\
+g \cdot g^{-1} &\sim g\cdot a \cdot g^{-1} \\
+1              &\sim g\cdot a \cdot g^{-1}
+\end{align*}
+Then $g\cdot a \cdot g^{-1} \in 1/\sim$.
+So $g(1/\sim)g^{-1} \subseteq (1/\sim)$ for all $g \in G$ and thus $1/\sim$ is the universe of  normal subgroup of $\mathbf{G}$.
+
+Next, for $a, b \in G$,
+\begin{align*}
+a            &\sim b              & \text{iff} \\
+a\cdot b^{-1} &\sim b\cdot b^{-1} & \text{iff} \\
+a\cdot b^{-1} &\sim 1             & \text{iff} \\
+a\cdot b^{-1} &\in 1/\sim         
+\end{align*}
+by compatibility and properties of groups.
+\end{proof}
+
+\begin{theorem*}
+If $\mathbf{N}$ is a normal subgroup of a group $\mathbf{G}$, then the relationship $\sim$ defined as
+\[
+ a\sim b \text{ iff } a\cdot b^{-1} \in N
+\]
+is a congruence on $\mathbf{G}$ with $1/\sim = N$.
+\end{theorem*}
+
+\begin{proof}
+  Assume $\mathbf{N}$ is a normal subgroup of a group $\mathbf{G}$ and define $\sim$ as above.
+  First we confirm $\sim$ is an equivalence relation:
+  \begin{enumerate}
+    \item
+      For any $a \in G$ we have that $a \sim a$ because $a\cdot a^{-1} = 1 \in N$.
+    \item
+      For any $a, b \in G$ assume $a \sim b$.
+      Then $a\cdot b^{-1} \in N$ so its inverse $b\cdot a^{-1}\in N$, and thus $b \sim a$.
+    \item
+      For any $a, b, c \in G$ assume $a \sim b$ and $b \sim c$.
+      That is, $a\cdot b^{-1} \in N$ and $b\cdot c^{-1} \in N$.
+      Then since $\mathbf{N}$ is closed, $a\cdot b^{-1}\cdot b\cdot c^{-1} = a \cdot c^{-1} \in N$.
+      Thus $a\sim c$.
+  \end{enumerate}
+  Therefore $\sim$ is an equivalence relation.
+
+  Next we check the compatibility property.
+  \begin{enumerate}
+    \item
+      Take any $a, b \in G$ such that $a \sim b$.
+      Then $b \sim a$, i.e.\ $b\cdot a^{-1} \in N$.
+      Then because $N$ is normal, $a^{-1}ba^{-1}a = a^{-1}b = a^{-1}(b^{-1})^{-1} \in N$.
+      Therefore $a^{-1} \sim b^{-1}$.                 
+    \item
+      Next take any $a_1, a_2, b_1, b_2 \in G$ such that $a_1 \sim b_1$ and $a_2 \sim b_2$.
+      Then $a_1b_1^{-1} \in N$ and $a_2b_2^{-1} \in N$.
+      Because $N$ is normal and $a_1b_1^{-1} \in N$ we have that $b_1^{-1}a_1b_1^{-1}b_1 = b_1^{-1}a_1\in N$.
+      Next since $b_1^{-1}a_1\in N$ and $a_2b_2^{-1} \in N$ their product $b_1^{-1}a_1a_2b_2^{-1} \in N$.
+      Again since $N$ is normal, $b_1\cdot b_1^{-1}\cdot a_1\cdot a_2\cdot b_2^{-1}\cdot b_1^{-1} = a_1\cdot a_2\cdot b_2^{-1}\cdot b_1^{-1} = (a_1\cdot a_2)\cdot(b_1\cdot b_2)^{-1} \in N$.
+      Therefore $a_1\cdot a_2 \sim b_1\cdot b_2$.
+  \end{enumerate}
+  Finally, since $\sim$ is an equivalence relationship that satisfies the compatibility property it is a congruence on $\mathbf{G}$.
+\end{proof}

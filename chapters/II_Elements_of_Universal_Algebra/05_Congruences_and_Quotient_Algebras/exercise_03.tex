@@ -1,0 +1,26 @@
+\begin{theorem*}
+The normal subgroups of a group form an algebraic lattice which is modular.
+\end{theorem*}
+
+\begin{proof}
+Take any group $\mathbf{G}$.
+By Exercise 1 the lattice of normal subgroups of $\mathbf{G}$ is isomorphic to the lattice of congruences on $\mathbf{G}$.
+By theorem 5.5, the lattice of congruences on $\mathbf{G}$ is algebraic.
+By theorem 5.10, if $\mathbf{G}$ is congruence permutable, then $\mathbf{G}$ is congruence modular.
+Then it is sufficient to show that $\mathbf{G}$ is congruence permutable to show that the lattice of normal subgroups of $\mathbf{G}$ is algebraic and modular.
+
+Take any $\sim_1, \sim_2 \in \text{Con }\mathbf{G}$.
+Take any $a, b \in G$ such that $a \sim_1 \circ \sim_2 b$.
+Then there is a $c \in G$ such that $a \sim_1 c$ and $c \sim_2 b$.
+Then by compatbility
+\begin{alignat*}{6}
+c \;\sim_2\; & b        & \quad\quad\quad & a        & \;\sim_2\; & c \\
+1 \;\sim_2\; & c^{-1}b  & \quad\quad\quad & ac^{-1}  & \;\sim_2\; & 1 \\
+a \;\sim_2\; & ac^{-1}b & \quad\quad\quad & ac^{-1}b & \;\sim_2\; & b
+\end{alignat*}
+Then $a \sim_2 \circ \sim_1 b$.
+Thus $\sim_1 \circ \sim_2 \;\subseteq\; \sim_2 \circ \sim_1$, and by theorem 5.9, $\sim_1 \circ \sim_2 = \sim_2 \circ \sim_1$.
+That is, $\mathbf{G}$ is congruence permutable and thus also congruence modular.
+
+Therefore the lattice of normal subgroups of a group form an algebraic and modular lattice.
+\end{proof}
