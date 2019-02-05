@@ -1,0 +1,100 @@
+\begin{theorem*}
+  If $\mathbf{L}$ is a distributive lattice and $a, b, c, d \in L$, then $\langle a, b \rangle \in \Theta(c, d)$ iff $c \meet d \meet a = c \meet d \meet b$ and $c \join d \join a = c \join d \join b$.
+\end{theorem*}
+
+\begin{proof}
+  Assume $\mathbf{L}$ is a distributive lattice.
+  Let $X = \{\langle c, d \rangle\} \subseteq L\times L$.
+  Then by the construction in theorem 5.5, $\Theta(c, d) = \text{Sg}(X) = X \union E(X) \union E^2(X) \union \ldots$ where for all $X\subseteq L\times L$.
+  \begin{align*}
+    E(X) &= X \\
+         &\union \{ 1_a = \langle a, a \rangle \text{ for all } a \in L\} \\
+         &\union \{ s(\langle b, a \rangle) = \langle a, b \rangle \text{ for all } \langle b, a \rangle \in  X \} \\
+         &\union \{ \text{if } b = c \text{ then } \langle a, d \rangle \text{ else } \langle a, b\rangle \text{ for }  \langle a, b\rangle, \langle c, d \rangle \in X \} \\
+         &\union \{\langle a_1 \meet a_2, b_1 \meet b_2 \rangle \text{ for all } \langle a_1, a_2\rangle, \langle b_1, b_2\rangle \in X \} \\
+         &\union \{\langle a_1 \join a_2, b_1 \join b_2 \rangle \text{ for all } \langle a_1, a_2\rangle, \langle b_1, b_2\rangle \in X \} 
+  \end{align*}
+  We will show by induction that for all $k \in \mathbb{N}$ and $a, b \in L$ if $\langle a, b \rangle \in E^{k}(c, d)$ then $c \meet d \meet a = c \meet d \meet b$ and $c \join d \join a = c \join d \join b$.
+  \begin{enumerate}
+  \item
+    In the base case $k = 0$.
+    Assume $\langle a, b \rangle \in E^0(X) = \{ \langle c, d \rangle \}$.
+    Then $a = c$, $b = d$ and
+    \begin{align*}
+      c \meet d \meet a &= c \meet d \meet c \\
+                        &= c \meet c \meet d \\
+                        &= c \meet d \\
+                        &= c \meet d \meet d \\
+                        &= c \meet d \meet b.
+    \end{align*}
+    Dually, $c \join d \join a = c \join d \join b$.
+  \item
+    In the inductive case, assume the inductive hypothesis that if $\langle a, b \rangle \in E^k(X)$ then $c\meet d\meet a = c \meet d \meet b$ and $c\join d\join a = c\join d\join b$.
+    Next, assume $\langle a, b\rangle \in E^{k+1}(X) = E(E^k(X))$.
+    By cases, either
+    \begin{enumerate}
+      \item
+        $\langle a, b\rangle \in E^k(X)$, in which case the goal holds immediately from the inductive hypothesis.
+      \item
+        $\langle a, b\rangle = 1_c = \langle c, c \rangle$ for some $c \in L$, in which case the goal is trivially true.
+      \item
+        $\langle a, b\rangle = s(\langle b, a\rangle)$ with $\langle b, a\rangle \in E^k(X)$, in which case again the goal holds from the inductive hypothesis.
+      \item
+        $\langle a, b\rangle = t(\langle e ,f \rangle, \langle g, h\rangle)$ for some $\langle e ,f \rangle, \langle g, h\rangle \in E^k(X)$. 
+        There are two cases:
+        \begin{enumerate}
+          \item
+            When $f = g$, $\langle a, b\rangle = \langle e, f\rangle$.
+            By the inductive hypothesis, $c\meet d\meet e = c\meet d\meet f$ and $c \meet d \meet g = c \meet d \meet h$.
+            But then by substitution since $f = g$, $a = e$, and $b = f$,
+            \[
+              c \meet d \meet a = c \meet d \meet f = c \meet d \meet b.
+            \]
+            Dually, $c\join d \join a = c\join d \join b$.
+          \item
+            Otherwise $\langle a, b\rangle = \langle e, f \rangle$, and thus $\langle a, b \rangle \in E^k(X)$ and by the inductive hypothesis the goal holds.
+        \end{enumerate}
+      \item
+        In another case, $\langle a, b \rangle = \langle a_1 \meet a_2, b_1 \meet b_2 \rangle = \langle a_1, b_1 \rangle \meet \langle a_2, b_2\rangle$ for some $\langle a_1, b_1\rangle, \langle a_2, b_2\rangle \in E^K(X)$.
+        Then by the inductive hypothesis
+        \[
+          c \join d \join a_1 = c \join d \join b_1 \quad\text{ and }\quad c \join d \join a_2 = c\join d \join b_2.
+        \]
+        Thus
+        \[
+         (c \join d \join a_1) \meet (c \join d \join a_2)  = (c \join d \join b_1) \meet (c\join d \join b_2)
+        \]
+        Then because $\mathbf{L}$ is distributive,
+        \[
+          c \join d \join (a_1 \meet a_2) = c \join d \join (b_1 \meet b_2)
+        \]
+        Therefore by substitution
+        \[
+          c \join d \join a = c \join d \join b.
+        \]
+        Additionally, by the inductive hypothesis
+        \[
+          c \meet d \meet a_1 = c \meet d \meet b_1 \quad\text{ and }\quad c\meet d \meet a_2 = c\meet d \meet b_2.
+        \]
+        Thus 
+        \[
+          c \meet d \meet a_1 \meet c\meet d \meet a_2 = c \meet d \meet b_1 \meet c\meet d \meet b_2.
+        \]
+        Then by associativity and commutativity of the lattice $\mathbf{L}$,
+        \[
+          (c \meet c) \meet (d\meet d) \meet (a_1 \meet a_2) = (c \meet c) \meet (d\meet d) \meet (b_1 \meet b_2).
+        \]
+        Therefore, by substitution and lattice idempotency,
+        \[
+          c \meet d \meet a = c \meet d \meet b.
+        \]
+      \item
+        In the final case, $\langle a, b \rangle = \langle a_1 \join a_2, b_1 \join b_2 \rangle = \langle a_1, b_1 \rangle \join \langle a_2, b_2\rangle$ for some $\langle a_1, b_1\rangle, \langle a_2, b_2\rangle \in E^K(X)$.
+        The proof in this case is dual to the proof in (e). 
+    \end{enumerate}
+    Therefore if $c \join d \join a = c\join d \join b$ and $c \meet d \meet a = c\meet d \meet b$ for all $\langle a, b\rangle \in E^k(X)$ then $c \join d \join a = c\join d \join b$ and $c \meet d \meet a = c\meet d \meet b$ for all $\langle a, b\rangle \in E^{k+1}(X)$. 
+  \end{enumerate}
+  Having proven the base case and inductive case, for all $k \in \mathbb{N}$ and $a, b\in L$, $c\meet d\meet a = c\meet d \meet b$ and $c\join d\join a = c\join d \join b$ when $\langle a, b \rangle \in E^k(X)$.
+  Furthermore when $\langle a, b\rangle \in \Theta(c, d)$, $\langle a, b\rangle \in E^k(\{\langle c, d\rangle\})$ for some $k\in\mathbb{N}$. 
+  Therefore $c\meet d\meet a = c\meet d \meet b$ and $c\join d\join a = c\join d \join b$ when $\langle a, b \rangle \in \Theta(c, d)$. 
+\end{proof}
